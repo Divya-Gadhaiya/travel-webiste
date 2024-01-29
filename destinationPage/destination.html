@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Destinations</title>
+    <link rel="stylesheet" href="destination.css" />
+  </head>
+  <body>
+    <header>
+      <h1 class="heading">To travel is to live</h1>
+    </header>
+    <section></section>
+    <script>
+      const data = [
+        {
+          title: "Mount Fuji",
+          image: "https://source.unsplash.com/WLxQvbMyfas",
+          mapLink:
+            "https://www.google.com/maps/about/behind-the-scenes/streetview/treks/mount-fuji/",
+          place: "Japan",
+          description:
+            "Mount Fuji is the tallest mountain in Japan, standing at 3,776 meters (12,380 feet). Mount Fuji is the single most popular tourist site in Japan, for both Japanese and foreign tourists.",
+        },
+        {
+          title: "Sydney Opera House",
+          image: "https://source.unsplash.com/JmuyB_LibRo",
+          mapLink:
+            "https://earth.google.com/web/@-33.8567844,151.2152967,7.16622612a,859.55280273d,35y,0h,45t,0r",
+          place: "Australia",
+          description:
+            "The Sydney Opera House is a multi-venue performing arts centre in Sydney. Located on the banks of the Sydney Harbour, it is often regarded as one of the 20th century's most famous and distinctive buildings",
+        },
+        {
+          title: "Geirangerfjord",
+          image: "https://source.unsplash.com/3PeSjpLVtLg",
+          mapLink:
+            "https://earth.google.com/web/@62.09820905,7.2093898,42.11098098a,2184.36873275d,35y,0h,45t,0r",
+          place: "Norway",
+          description:
+            "The Geiranger Fjord is a fjord in the Sunnmøre region of Møre og Romsdal county, Norway. It is located entirely in the Stranda Municipality.",
+        },
+      ];
+      const ul = document.createElement("ul");
+
+      const section = document.querySelector("section");
+      section.appendChild(ul);
+
+      data.map((destination) => {
+        const li = document.createElement("li");
+        li.setAttribute("class", "list");
+
+        const img = document.createElement("img");
+        img.src = destination.image;
+        img.setAttribute("class", "destinationImage");
+
+        const div = document.createElement("div");
+        div.setAttribute("class", "infoSection");
+
+        const linkContainer = document.createElement("div");
+        linkContainer.setAttribute("class", "link-container");
+
+        const span = document.createElement("span");
+        span.textContent = destination.place;
+        span.setAttribute("class", "place");
+
+        const anchorTag = document.createElement("a");
+        anchorTag.textContent = "View on Map";
+        anchorTag.href = destination.mapLink;
+        anchorTag.target = "_blank";
+        anchorTag.setAttribute("class", "mapLink");
+
+        const h2 = document.createElement("h2");
+        h2.textContent = destination.title;
+        h2.setAttribute("class", "title");
+
+        const paraTag = document.createElement("p");
+        paraTag.textContent = destination.description;
+        paraTag.setAttribute("class", "description");
+
+        li.appendChild(img);
+        li.appendChild(div);
+        div.appendChild(linkContainer);
+        linkContainer.appendChild(span);
+        linkContainer.appendChild(anchorTag);
+        div.appendChild(h2);
+        div.appendChild(paraTag);
+        ul.appendChild(li);
+      });
+    </script>
+  </body>
+</html>
